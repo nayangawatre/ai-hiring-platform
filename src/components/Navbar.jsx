@@ -1,0 +1,34 @@
+import { Link } from "react-router-dom";
+
+function Navbar() {
+  const isLoggedIn = false; // later from Context/API
+
+  return (
+    <nav>
+      <Link to="/">Home</Link>
+
+      <Link to="/jobs">Jobs</Link>
+
+      {!isLoggedIn && (
+        <>
+          <Link to="/login">Login</Link>
+          <Link to="/register">Register</Link>
+        </>
+      )}
+
+      {isLoggedIn && (
+        <>
+          <Link to="/candidate-dashboard">
+            Dashboard
+          </Link>
+
+          <Link to="/logout">
+            Logout
+          </Link>
+        </>
+      )}
+    </nav>
+  );
+}
+
+export default Navbar;
